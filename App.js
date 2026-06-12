@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView } from 'react-native';
 
 export default function App() {
-  const [history, setHistory] = useState(['AutoKaaj Termux Ready...', 'Type help']);
+  const [history, setHistory] = useState(['AutoKaaj Shell Ready', 'Type help']);
   const [input, setInput] = useState('');
 
   const handleCommand = (cmd) => {
-    setHistory([...history, '> ' + cmd, 'Response to ' + cmd]);
+    let output = cmd === 'ls' ? 'bin/  home/  scripts/' : 'Command: ' + cmd;
+    setHistory([...history, '> ' + cmd, output]);
     setInput('');
   };
 
